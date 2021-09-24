@@ -22,4 +22,5 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 - Desenvolvido na IDE Eclipse.
 - Rodar o método main na classe LivrariaApplication.java ou compilar para um arquivo .jar
+- Não há integração com banco de dados (por enquanto).
 
