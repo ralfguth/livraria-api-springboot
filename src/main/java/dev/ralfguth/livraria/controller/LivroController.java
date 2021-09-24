@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import dev.ralfguth.livraria.dto.LivroDto;
-import dev.ralfguth.livraria.dto.LivroFormDto;
+import dev.ralfguth.livraria.dto.LivroOutputDto;
+import dev.ralfguth.livraria.dto.LivroInputDto;
 import dev.ralfguth.livraria.service.LivroService;
 
 @RestController
@@ -23,12 +23,12 @@ public class LivroController {
 	private LivroService service;
 
 	@GetMapping
-	public List<LivroDto> listar() {
+	public List<LivroOutputDto> listar() {
 		return service.listar();
 	}
 
 	@PostMapping
-	public void cadastrar(@RequestBody @Valid LivroFormDto dto) {
+	public void cadastrar(@RequestBody @Valid LivroInputDto dto) {
 		service.cadastrar(dto);
 	}
 

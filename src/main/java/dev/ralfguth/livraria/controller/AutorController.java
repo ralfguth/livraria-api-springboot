@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import dev.ralfguth.livraria.dto.AutorDto;
-import dev.ralfguth.livraria.dto.AutorFormDto;
+import dev.ralfguth.livraria.dto.AutorOutputDto;
+import dev.ralfguth.livraria.dto.AutorInputDto;
 import dev.ralfguth.livraria.service.AutorService;
 
 @RestController
@@ -23,12 +23,12 @@ public class AutorController {
 	private AutorService service;
 
 	@GetMapping
-	public List<AutorDto> listar() {
+	public List<AutorOutputDto> listar() {
 		return service.listar();
 	}
 
 	@PostMapping
-	public void cadastrar(@RequestBody @Valid AutorFormDto dto) {
+	public void cadastrar(@RequestBody @Valid AutorInputDto dto) {
 		service.cadastrar(dto);
 	}
 
