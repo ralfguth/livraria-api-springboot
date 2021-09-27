@@ -28,12 +28,4 @@ public class AutorService {
 		autores.add(autor);
 	}
 
-	public Autor getAutor(String nome) {
-		for (Autor autor : autores) {
-			if (autor.getNome().equals(nome)) {
-				return autor;
-			}
-		}
-		return null;
-	}
 }
