@@ -19,7 +19,6 @@ public class LivroService {
 	private List<Livro> livros = new ArrayList<>();
 	private ModelMapper modelMapper = new ModelMapper();
 	
-
 	public List<LivroOutputDto> listar() {
 		return livros.stream().map(livro -> modelMapper.map(livro, LivroOutputDto.class)).collect(Collectors.toList());
 	}
