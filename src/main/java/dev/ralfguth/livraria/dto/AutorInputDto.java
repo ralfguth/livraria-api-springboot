@@ -16,7 +16,6 @@ public class AutorInputDto {
 	private String nome;
 	@NotBlank
 	private String email;
-	@NotBlank
 	@PastOrPresent
 	private LocalDate nascimento;
 	@NotBlank

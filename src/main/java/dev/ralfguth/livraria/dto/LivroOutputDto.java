@@ -2,7 +2,6 @@ package dev.ralfguth.livraria.dto;
 
 import java.time.LocalDate;
 
-import dev.ralfguth.livraria.model.Autor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +10,7 @@ import lombok.Setter;
 public class LivroOutputDto {
 
 	private String titulo;
-	private Autor autor;
+	private String autor;
 	private int numeroPaginas;
 	private LocalDate dataLancamento;
 }

@@ -7,11 +7,13 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
 
 import dev.ralfguth.livraria.dto.AutorInputDto;
 import dev.ralfguth.livraria.dto.AutorOutputDto;
 import dev.ralfguth.livraria.model.Autor;
 
+@Service
 public class AutorService {
 
 	private List<Autor> autores = new ArrayList<>();
@@ -26,4 +28,12 @@ public class AutorService {
 		autores.add(autor);
 	}
 
+	public Autor getAutor(String nome) {
+		for (Autor autor : autores) {
+			if (autor.getNome().equals(nome)) {
+				return autor;
+			}
+		}
+		return null;
+	}
 }
