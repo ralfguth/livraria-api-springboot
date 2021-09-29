@@ -10,7 +10,7 @@ import lombok.Setter;
 public class LivroOutputDto {
 
 	private String titulo;
-	private String autor;
+	private AutorOutputDto autor;
 	private int numeroPaginas;
 	private LocalDate dataLancamento;
 }

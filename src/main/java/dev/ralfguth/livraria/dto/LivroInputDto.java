@@ -18,7 +18,7 @@ public class LivroInputDto {
 	@Size(min = 10)
 	private String titulo;
 	@NotBlank
-	private String autor;
+	private AutorInputDto autor;
 	@Min(100)
 	private int numeroPaginas;
 	@PastOrPresent
