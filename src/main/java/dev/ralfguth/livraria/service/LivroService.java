@@ -20,6 +20,7 @@ public class LivroService {
 
 	@Autowired
 	private LivroRepository repository;
+	
 	private ModelMapper modelMapper = new ModelMapper();
 
 	public Page<LivroOutputDto> listar(@PageableDefault(size = 10) Pageable paginacao) {
