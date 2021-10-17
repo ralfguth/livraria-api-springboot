@@ -23,9 +23,9 @@ public class AutorService {
 
 	private ModelMapper modelMapper = new ModelMapper();
 
-	public Page<AutorOutputDto> listar(@PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
+	public Page<AutorOutputDto> listar(@PageableDefault(size = 10) Pageable paginacao) {
 		Page<Autor> autores = repository.findAll(paginacao);
-		return autores.map(usuario -> modelMapper.map(usuario, AutorOutputDto.class));
+		return autores.map(autor -> modelMapper.map(autor, AutorOutputDto.class));
 	}
 
 	@Transactional

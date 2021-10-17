@@ -11,7 +11,7 @@ import lombok.Setter;
 public class LivroOutputDto {
 
 	private String titulo;
-	private Integer numeroPaginas;
-	private LocalDate dataLancamento;
+	private Integer paginas;
+	private LocalDate lancamento;
 	private Autor autor;
 }

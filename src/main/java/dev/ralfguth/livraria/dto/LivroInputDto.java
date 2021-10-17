@@ -22,10 +22,10 @@ public class LivroInputDto {
 	private String titulo;
 	
 	@Min(100)
-	private Integer numeroPaginas;
+	private Integer paginas;
 	
 	@PastOrPresent
-	private LocalDate dataLancamento;
+	private LocalDate lancamento;
 	
 	@NotNull
 	@JsonAlias("autor_id")

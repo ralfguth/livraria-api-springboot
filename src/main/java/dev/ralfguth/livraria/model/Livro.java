@@ -26,8 +26,8 @@ public class Livro {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String titulo;
-	private Integer numeroPaginas;
-	private LocalDate dataLancamento;
+	private Integer paginas;
+	private LocalDate lancamento;
 
 	@ManyToOne
 	private Autor autor;

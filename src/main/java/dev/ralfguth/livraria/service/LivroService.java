@@ -22,7 +22,7 @@ public class LivroService {
 	private LivroRepository repository;
 	private ModelMapper modelMapper = new ModelMapper();
 
-	public Page<LivroOutputDto> listar(@PageableDefault(size = 10, sort = "dataLancamento") Pageable paginacao) {
+	public Page<LivroOutputDto> listar(@PageableDefault(size = 10) Pageable paginacao) {
 		Page<Livro> livros = repository.findAll(paginacao);
 		return livros.map(livro -> modelMapper.map(livro, LivroOutputDto.class));
 	}
