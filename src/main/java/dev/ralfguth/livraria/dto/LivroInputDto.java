@@ -22,7 +22,7 @@ public class LivroInputDto {
 	private String titulo;
 	
 	@Min(100)
-	private int numeroPaginas;
+	private Integer numeroPaginas;
 	
 	@PastOrPresent
 	private LocalDate dataLancamento;

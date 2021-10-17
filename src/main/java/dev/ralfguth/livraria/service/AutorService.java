@@ -1,11 +1,13 @@
 package dev.ralfguth.livraria.service;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 
 import dev.ralfguth.livraria.dto.AutorInputDto;
@@ -18,14 +20,15 @@ public class AutorService {
 
 	@Autowired
 	private AutorRepository repository;
-	
+
 	private ModelMapper modelMapper = new ModelMapper();
 
-	public Page<AutorOutputDto> listar(Pageable paginacao) {
+	public Page<AutorOutputDto> listar(@PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
 		Page<Autor> autores = repository.findAll(paginacao);
 		return autores.map(usuario -> modelMapper.map(usuario, AutorOutputDto.class));
 	}
 
+	@Transactional
 	public void cadastrar(@Valid AutorInputDto dto) {
 		Autor autor = modelMapper.map(dto, Autor.class);
 		repository.save(autor);
