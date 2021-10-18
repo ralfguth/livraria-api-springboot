@@ -7,7 +7,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 
 import dev.ralfguth.livraria.dto.LivroInputDto;
@@ -23,16 +22,17 @@ public class LivroService {
 	
 	private ModelMapper modelMapper = new ModelMapper();
 
-	public Page<LivroOutputDto> listar(@PageableDefault(size = 10) Pageable paginacao) {
+	public Page<LivroOutputDto> listar(Pageable paginacao) {
 		Page<Livro> livros = repository.findAll(paginacao);
 		return livros.map(livro -> modelMapper.map(livro, LivroOutputDto.class));
 	}
 
 	@Transactional
-	public void cadastrar(@Valid LivroInputDto dto) {
+	public LivroOutputDto cadastrar(@Valid LivroInputDto dto) {
 		Livro livro = modelMapper.map(dto, Livro.class);
 		livro.setId(null);
 		repository.save(livro);
+		return modelMapper.map(livro, LivroOutputDto.class);
 	}
 
 }

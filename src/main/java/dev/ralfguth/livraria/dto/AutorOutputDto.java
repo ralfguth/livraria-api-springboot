@@ -1,7 +1,5 @@
 package dev.ralfguth.livraria.dto;
 
-import java.time.LocalDate;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,8 +7,7 @@ import lombok.Setter;
 @Setter
 public class AutorOutputDto {
 	
+	private Long id;
 	private String nome;
-	private LocalDate nascimento;
-	private String biografia;
 
 }
