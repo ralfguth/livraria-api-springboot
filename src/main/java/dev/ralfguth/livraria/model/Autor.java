@@ -20,7 +20,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "autores")
 public class Autor {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -28,4 +28,11 @@ public class Autor {
 	private String email;
 	private LocalDate nascimento;
 	private String biografia;
+
+	public Autor(String nome, String email, LocalDate nascimento, String biografia) {
+		this.nome = nome;
+		this.email = email;
+		this.nascimento = nascimento;
+		this.biografia = biografia;
+	}
 }
