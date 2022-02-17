@@ -20,20 +20,25 @@ import org.springframework.web.util.UriComponentsBuilder;
 import dev.ralfguth.livraria.dto.LivroInputDto;
 import dev.ralfguth.livraria.dto.LivroOutputDto;
 import dev.ralfguth.livraria.service.LivroService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/livro")
+@Api(tags = "Livro")
 public class LivroController {
 
 	@Autowired
 	private LivroService service;
 
 	@GetMapping
+	@ApiOperation("Listar Livros")
 	public Page<LivroOutputDto> listar(@PageableDefault(size = 10, sort = "lancamento", direction = Direction.DESC) Pageable paginacao) {
 		return service.listar(paginacao);
 	}
 
 	@PostMapping
+	@ApiOperation("Cadastrar Livro")
 	public ResponseEntity<LivroOutputDto> cadastrar(@RequestBody @Valid LivroInputDto dto, UriComponentsBuilder uriBuilder) {
 		LivroOutputDto livroDto = service.cadastrar(dto);
 		URI uri = uriBuilder.path("/livro/{id}").buildAndExpand(livroDto.getId()).toUri();

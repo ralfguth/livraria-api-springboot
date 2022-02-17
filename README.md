@@ -20,8 +20,10 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Hibernate](https://hibernate.org/)
 - [MySQL](https://mvnrepository.com/artifact/mysql/mysql-connector-java)
 - [FlyWay](https://flywaydb.org/)
+- [Swagger2](https://swagger.io/)
 
 ## Observaçoes
 
 - Desenvolvido na IDE Eclipse.
-- Rodar o método main na classe LivrariaApplication.java ou compilar para um arquivo .jar
+- Executar a partir do método `main()` na classe `LivrariaApplication.java` ou compilar para um arquivo .jar
+- Durante a execução da aplicação a documentação é acessível na url `http://localhost:8080/swagger-ui.html`
