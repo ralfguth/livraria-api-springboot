@@ -10,8 +10,11 @@ import lombok.Getter;
 public class Erro500Dto {
 	
 	private LocalDateTime timestamp;
+	
 	private String erro;
+	
 	private String mensagem;
+	
 	private String path;
 
 }

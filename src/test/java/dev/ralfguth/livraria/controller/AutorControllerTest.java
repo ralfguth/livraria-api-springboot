@@ -12,11 +12,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
+import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest // diz que deverá carregar toda a aplicação no teste
+@SpringBootTest 
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 @Transactional
@@ -26,7 +26,7 @@ class AutorControllerTest {
 	private MockMvc mvc;
 
 	@Test
-	void naoDeveCadastrarUmAutorComSemDados() throws Exception {
+	void naoDeveCadastrarUmAutorSemDados() throws Exception {
 		String json = "{}";
 		mvc.perform(post("/autor").contentType(MediaType.APPLICATION_JSON).content(json)).andExpect(status().isBadRequest());
 	}
@@ -60,6 +60,23 @@ class AutorControllerTest {
 			.andExpect(header().exists("Location"))
 			.andExpect(content().json(jsonRetorno));
 	}
+	
+	@Test
+	void deveAtualizarUmAutor() throws Exception {
+		fail("Não Implementado");
+	}
+	
+	@Test
+	void deveRemoverUmAutorPeloId() throws Exception {
+		fail("Não Implementado");
+	}
+	
+	@Test
+	void deveReceberDadosDetalhadosDeAutorQuandoRealizarRequeisicaoPorId() throws Exception {
+		fail("Não Implementado");
+	}
+	
+	
 
 
 }

@@ -29,4 +29,5 @@ public class AutorInputDto {
 	
 	@NotBlank
 	private String biografia;
+	
 }

@@ -8,8 +8,9 @@ import lombok.Getter;
 public class LivrosPorAutorDto {
 	
 	private String autor;
-	private Long totalDeLivros;
-	private Double percentual;
 	
+	private Long totalDeLivros;
+	
+	private Double percentual;
 
 }

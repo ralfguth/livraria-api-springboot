@@ -8,6 +8,7 @@ import lombok.Getter;
 public class Erro400Dto {
 	
 	private String campo;
+	
 	private String mensagem;
 
 }

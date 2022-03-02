@@ -10,8 +10,12 @@ import lombok.Setter;
 public class LivroOutputDto {
 
 	private Long id;
+	
 	private String titulo;
+	
 	private Integer paginas;
+	
 	private LocalDate lancamento;
+	
 	private AutorOutputDto autor;
 }

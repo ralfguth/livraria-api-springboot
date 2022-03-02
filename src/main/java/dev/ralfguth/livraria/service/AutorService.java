@@ -1,5 +1,6 @@
 package dev.ralfguth.livraria.service;
 
+import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
@@ -9,9 +10,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import dev.ralfguth.livraria.dto.AtualizacaoAutorInputDto;
 import dev.ralfguth.livraria.dto.AutorDetalhadoDto;
 import dev.ralfguth.livraria.dto.AutorInputDto;
+import dev.ralfguth.livraria.dto.AutorInputDtoAtualizacao;
 import dev.ralfguth.livraria.dto.AutorOutputDto;
 import dev.ralfguth.livraria.model.Autor;
 import dev.ralfguth.livraria.repository.AutorRepository;
@@ -36,19 +37,21 @@ public class AutorService {
 		return modelMapper.map(autor, AutorOutputDto.class);
 	}
 
+	@Transactional
+	public AutorOutputDto atualizar(@Valid AutorInputDtoAtualizacao dto) {
+		Autor autor = repository.getById(dto.getId());
+		autor.atualizar(dto.getNome(), dto.getEmail(), dto.getNascimento(), dto.getBiografia());
+		return modelMapper.map(autor, AutorOutputDto.class);
+	}
+
+	@Transactional
 	public void remover(Long id) {
-		// TODO Auto-generated method stub
-		
+		repository.deleteById(id);
 	}
 
 	public AutorDetalhadoDto detalhar(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public AutorOutputDto atualizar(@Valid AtualizacaoAutorInputDto dto) {
-		// TODO Auto-generated method stub
-		return null;
+		Autor autor = repository.findById(id).orElseThrow(() -> new EntityNotFoundException());
+		return modelMapper.map(autor, AutorDetalhadoDto.class);
 	}
 
 }

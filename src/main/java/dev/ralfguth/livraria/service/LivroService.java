@@ -1,5 +1,6 @@
 package dev.ralfguth.livraria.service;
 
+import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
@@ -10,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import dev.ralfguth.livraria.dto.LivroInputDto;
+import dev.ralfguth.livraria.dto.LivroInputDtoAtualizacao;
 import dev.ralfguth.livraria.dto.LivroOutputDto;
 import dev.ralfguth.livraria.model.Autor;
 import dev.ralfguth.livraria.model.Livro;
@@ -45,6 +47,24 @@ public class LivroService {
 			System.out.println(e.toString());
 			throw new IllegalArgumentException("operacao não permitida");
 		}
+	}
+
+	@Transactional
+	public LivroOutputDto atualizar(LivroInputDtoAtualizacao dto) {
+		Livro livroDoBanco = repository.getById(dto.getId());
+		Autor autor = autorRepository.getById(dto.getAutorId());
+		livroDoBanco.atualizar(dto.getTitulo(), dto.getPaginas(), dto.getLancamento(), autor);
+		return modelMapper.map(livroDoBanco, LivroOutputDto.class);
+	}
+
+	@Transactional
+	public void remover(Long id) {
+		repository.deleteById(id);
+	}
+
+	public LivroOutputDto detalhar(Long id) {
+		Livro livroDoBanco = repository.findById(id).orElseThrow(() -> new EntityNotFoundException());
+		return modelMapper.map(livroDoBanco, LivroOutputDto.class);
 	}
 
 }

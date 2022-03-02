@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import dev.ralfguth.livraria.dto.AtualizacaoAutorInputDto;
 import dev.ralfguth.livraria.dto.AutorDetalhadoDto;
 import dev.ralfguth.livraria.dto.AutorInputDto;
+import dev.ralfguth.livraria.dto.AutorInputDtoAtualizacao;
 import dev.ralfguth.livraria.dto.AutorOutputDto;
 import dev.ralfguth.livraria.service.AutorService;
 import io.swagger.annotations.Api;
@@ -51,7 +51,7 @@ public class AutorController {
 
 	@PutMapping
 	@ApiOperation("Atualizar Autor")
-	public ResponseEntity<AutorOutputDto> atualizar(@RequestBody @Valid AtualizacaoAutorInputDto dto) {
+	public ResponseEntity<AutorOutputDto> atualizar(@RequestBody @Valid AutorInputDtoAtualizacao dto) {
 		AutorOutputDto atualizada = service.atualizar(dto);
 		return ResponseEntity.ok(atualizada);
 	}
