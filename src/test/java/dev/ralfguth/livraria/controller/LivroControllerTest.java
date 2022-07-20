@@ -33,9 +33,7 @@ class LivroControllerTest {
 	@Test
 	void NaoDeveCadastrarUmLivroSemAutor() throws Exception {
 		String json = "{ " 
-				+ "\"nome\": \"Ralf Guth\", " 
-				+ "\"email\": \"rsguth@gmail.com\", " 
-				+ "\"nascimento\": \"1989-09-23\" " 
+				
 				+ "}";
 		mvc.perform(post("/autor").contentType(MediaType.APPLICATION_JSON).content(json))
 		.andExpect(status().isBadRequest());
