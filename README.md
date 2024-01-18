@@ -27,3 +27,4 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - Desenvolvido na IDE Eclipse.
 - Executar a partir do método `main()` na classe `LivrariaApplication.java` ou compilar para um arquivo .jar
 - Durante a execução da aplicação a documentação é acessível na url `http://localhost:8080/swagger-ui.html`
+- É necessário ter instalado um mysql com um banco de dados 'livraria' criado
