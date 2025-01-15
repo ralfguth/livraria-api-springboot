@@ -1,10 +1,7 @@
 # REST API para uma Livraria :books:
 
-Código fonte de uma API RESTful feita em Java:coffee: utilzando o Maven e Spring Boot :leaves:   
+Código fonte de uma API Restful feita em Java e SpringBoot para estudo   
 
-Submetido como atividade avaliativa no Bootcamp Java realizado pela [Alura](https://www.alura.com.br/).
-
-Desenvolvido por [Ralf](https://ralfguth.dev).
 
 ## 🛠 Tecnologias
 
